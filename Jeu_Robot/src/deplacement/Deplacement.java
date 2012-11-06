@@ -10,45 +10,43 @@ public class Deplacement {
 	public int x;
 	public int y;
 	
-	Deplacement() {
-		
+	public Deplacement(TypeDeplacement d) {
+		deplacement = d;
     }
 	
-	public Deplacement Inverse(Deplacement d){
-		switch (d) {
+	public void Inverse(){
+		switch (deplacement) {
 			case NORD:
-				
-				return Deplacement.SUD;
-				
+				deplacement = TypeDeplacement.SUD;
+				break;
 			case EST:
-				return Deplacement.OUEST;
-			
+				deplacement = TypeDeplacement.OUEST;
+				break;
 			case SUD:
-				return Deplacement.NORD;
-	
+				deplacement = TypeDeplacement.NORD;
+				break;
 			case OUEST:
-				return Deplacement.EST;
-				
+				deplacement = TypeDeplacement.EST;
+				break;
 			case NORD_EST:
-				return Deplacement.SUD_OUEST;
-			
+				deplacement = TypeDeplacement.SUD_OUEST;
+				break;
 			case NORD_OUEST:
-				return Deplacement.SUD_EST;
-			
+				deplacement = TypeDeplacement.SUD_EST;
+				break;
 			case SUD_EST:
-				return Deplacement.NORD_OUEST;
-			
+				deplacement = TypeDeplacement.NORD_OUEST;
+				break;
 			case SUD_OUEST:
-				return Deplacement.NORD_EST;
-				
+				deplacement = TypeDeplacement.NORD_EST;
+				break;
 			default:
 				break;
 		}
-		return d;
 	} 
 	
 	public Position getDeplacement(int x, int y){
-		switch (this) {
+		switch (deplacement) {
 			case NORD:
 				return new Position(x, y + 1);
 				

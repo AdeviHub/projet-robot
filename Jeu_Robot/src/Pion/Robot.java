@@ -3,6 +3,7 @@ package Pion;
 //souihi.sami@gmail.com [INGESUP_ING2A]
 
 import deplacement.Deplacement;
+import deplacement.TypeDeplacement;
 import Application.Plateau;
 import Application.Position;
 
@@ -19,7 +20,7 @@ public abstract class Robot extends Pion {
 	public Robot(int x , int y) {
 		super.setX(x) ;
 		super.setY(y) ;
-		deplacement = Deplacement.SUD_EST;
+		deplacement = new Deplacement(TypeDeplacement.SUD_EST);
 		
 	}
 
@@ -43,7 +44,7 @@ public abstract class Robot extends Pion {
 			}
 		}
 		else{
-			deplacement = deplacement.Inverse(deplacement);
+			deplacement.Inverse();
 			Position p = deplacement.getDeplacement(to_x, to_y);
 			deplacer(p.getX(), p.getY());
 		}
